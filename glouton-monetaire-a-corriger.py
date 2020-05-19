@@ -13,17 +13,17 @@ billets = [500, 200, 100, 50, 20, 10, 5]
 ## montant = 21
 ## pieces = [ 18, 7, 1 ]
 
-def Monnaie(somme, ListeMontantPiece, ListeMontantBillet) :
+def Monnaie(somme, ListeMontantPiece, ListeMontantBillet) : #Fonction principale du programme
 
-    # tableau de nombre de piece max a rendre selon le tableau de pieces
+    # tableau de nombre de pieces et billets max a rendre selon le tableau de pieces
     ListeNbPieces = [-1 for k in ListeMontantPiece]
     ListeNbBillets = [-1 for k in ListeMontantBillet]
 
-    for k in range(len(ListeMontantBillet)) :
+    for k in range(len(ListeMontantBillet)) : #Parcours de la liste des billets
 
-        ListeNbBillets[k] = somme // ListeMontantBillet[k]
+        ListeNbBillets[k] = somme // ListeMontantBillet[k] #Recupere le nombre de billets selon le quotient
 
-        somme = round(somme % ListeMontantBillet[k], 2)
+        somme = round(somme % ListeMontantBillet[k], 2) #Somme restante à déduire du montant
 
     # parcours de la liste des pieces
     for k in range(len(ListeMontantPiece)) :
@@ -36,4 +36,4 @@ def Monnaie(somme, ListeMontantPiece, ListeMontantBillet) :
 
     return somme, ListeNbBillets, ListeNbPieces
 
-print(montant, Monnaie(montant, pieces, billets))
+print(montant, Monnaie(montant, pieces, billets)) #Affichage du montant de base et de la monnaie à rendre 
